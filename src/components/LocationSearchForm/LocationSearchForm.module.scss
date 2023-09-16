@@ -2,40 +2,60 @@
 
 .search_form {
   width: 100%;
-  div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .input_block {
+    position: relative;
+    flex: 1 1 auto;
     input {
-      padding: 8px;
+      padding: 10px;
       width: 100%;
       font-size: inherit;
       color: inherit;
+      background-color: transparent;
+      border: none;
       border-radius: 20px;
-      background-color: $bg-color-minor;
-      border: 1px solid $bg-color-minor;
+      outline: 2px solid $text-color-major;
+      transition: outline-color 500ms;
+      &:focus {
+        outline-color: $text-color-minor;
+      }
     }
-    .error_input {
-      border: 1px solid $error-color;
+    label {
+      position: absolute;
+      display: inline;
+      background-color: $bg-color-mojor;
+      top: 0;
+      left: 0;
+      translate: 10px 10px;
+      transition: translate 500ms, scale 500ms, color 500ms;
     }
-    button {
-      margin-left: 0.5em;
-      padding: 8px;
-      font-size: inherit;
+    input:focus + label {
+      padding-inline: 5px;
       color: $text-color-minor;
-      border-radius: 20px;
-      background-color: $bg-color-minor;
+      translate: 10px -14px;
+      scale: 0.8;
+    }
+    .error {
+      outline: 2px solid $error-color;
+      &:focus {
+        outline: 2px solid $error-color;
+      }
+    }
+    .error + label {
+      color: $error-color;
+    }
+    .error:focus + label {
+      color: $error-color;
     }
   }
-  label {
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.3em;
+  button {
+    margin-left: 0.5em;
+    padding: 8px;
+    font-size: inherit;
     color: $text-color-minor;
-  }
-  .error_label {
-    font-weight: 500;
-    color: $error-color;
+    border-radius: 20px;
+    background-color: $bg-color-minor;
   }
 }

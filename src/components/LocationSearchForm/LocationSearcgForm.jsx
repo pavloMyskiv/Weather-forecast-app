@@ -1,3 +1,5 @@
+/** @format */
+
 import { useForm } from 'react-hook-form';
 import styles from './LocationSearchForm.module.scss';
 
@@ -21,20 +23,21 @@ export const LocationSearchForm = ({ onFormSubmit, label }) => {
         reset({ city: '' });
       })}
     >
-      <div>
+      <div className={styles.input_block}>
         <input
           className={
-            formState.errors.city?.type === 'required' && styles.error_input
+            (formState.errors.city?.type === 'required' ||
+              label === 'Error!!!') &&
+            styles.error
           }
           type="search"
+          id="city"
           name="city"
           {...register('city', fieldConfig)}
         />
-        <button>Search</button>
+        <label for="city">{label}</label>
       </div>
-      <label className={label === 'Error!!!' && styles.error_label}>
-        {label}
-      </label>
+      <button>Search</button>
     </form>
   );
 };
