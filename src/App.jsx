@@ -12,23 +12,33 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
-  const [getLocation, { data: cityData = [], isFetching, isSuccess }] =
+  const [getLocation, { data: cityData = [], isFetching, isSuccess, isError }] =
     useLazyGetLocationQuery();
   const searchStatus = {
     normal: 'Enter location',
     loading: 'Loading...',
+    undefinded_city: 'Undefinded city!',
     error: 'Error!!!',
   };
-  const label = isFetching
-    ? searchStatus.loading
-    : isSuccess && cityData.length === 0
-    ? searchStatus.error
-    : searchStatus.normal;
-
+  let label = searchStatus.normal;
+  if (isFetching) {
+    label = searchStatus.loading;
+  } else if (isSuccess && cityData.length === 0) {
+    label = searchStatus.undefinded_city;
+  } else if (isError) {
+    label = searchStatus.error;
+  }
   return (
     <div className="App">
       <div className="container">
-        <LocationSearchForm onFormSubmit={getLocation} label={label} />
+        <LocationSearchForm
+          onFormSubmit={getLocation}
+          label={label}
+          isError={
+            label === searchStatus.undefinded_city ||
+            label === searchStatus.error
+          }
+        />
         {cityData.length !== 0 && <Weather cityData={cityData} />}
       </div>
     </div>
