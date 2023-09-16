@@ -9,7 +9,7 @@
     position: relative;
     flex: 1 1 auto;
     input {
-      padding: 10px;
+      padding: 8px;
       width: 100%;
       font-size: inherit;
       color: inherit;
@@ -28,13 +28,13 @@
       background-color: $bg-color-mojor;
       top: 0;
       left: 0;
-      translate: 10px 10px;
+      translate: 8px 8px;
       transition: translate 500ms, scale 500ms, color 500ms;
     }
     input:focus + label {
       padding-inline: 5px;
       color: $text-color-minor;
-      translate: 10px -14px;
+      translate: 8px -11px;
       scale: 0.8;
     }
     .error {
