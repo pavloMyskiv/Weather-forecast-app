@@ -1,0 +1,29 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #80808080 #6a6a6a;
+  &::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #6a6a6a;
+    &:hover {
+      background-color: #6a6a6a;
+    }
+    &:active {
+      background-color: #6a6a6a;
+    }
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #80808080;
+    &:hover {
+      background-color: #80808080;
+    }
+
+    &:active {
+      background-color: #80808080;
+    }
+  }
+}

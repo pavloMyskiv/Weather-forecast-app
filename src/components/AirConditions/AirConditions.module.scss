@@ -1,0 +1,39 @@
+@import '../../style/variables';
+
+.air_conditions {
+  padding: 8px;
+  margin-top: 8px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: $bg-color-minor;
+  color: $text-color-minor;
+  h3 {
+    margin: 0.2em 1em;
+    font-size: 1.3em;
+  }
+  .grid {
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+
+    .grid_item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: repeat(2, auto);
+      grid-gap: 0.8em;
+      svg {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 2;
+        font-size: 0.8em;
+      }
+      h4 {
+        font-size: 0.8em;
+      }
+      p {
+        color: $text-color-major;
+        font-size: 1.5em;
+      }
+    }
+  }
+}
