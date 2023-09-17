@@ -4,7 +4,6 @@
   padding: 8px;
   display: flex;
   flex-direction: column;
-  margin-top: 8px;
   width: 100%;
   height: 100%;
   border-radius: 20px;
@@ -18,6 +17,7 @@
     .list_item {
       margin: 6px;
       height: 14%;
+      text-align: center;
       display: grid;
       grid-template-columns: 0.5fr 1fr 1fr;
       align-items: center;
@@ -29,6 +29,9 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+      }
+      span {
+        color: $text-color-minor;
       }
     }
   }

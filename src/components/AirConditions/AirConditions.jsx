@@ -9,7 +9,7 @@ export const AirConditions = ({ currentAirCondition }) => {
         <div className={styles.grid_item}>
           <FontAwesomeIcon icon="fa-temperature-half" />
           <h4>Feels like</h4>
-          <p>{currentAirCondition.feels_like} °C</p>
+          <p>{Math.round(currentAirCondition.feels_like)} °C</p>
         </div>
         <div className={styles.grid_item}>
           <FontAwesomeIcon icon="fa-wind" />

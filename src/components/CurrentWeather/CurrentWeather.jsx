@@ -10,7 +10,7 @@ export const CurrentWeather = ({ cityName, currentWeather }) => {
         src={`http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`}
         alt={currentWeather.weather[0].description}
       />
-      <p className={styles.temp}>{currentWeather.temp}°C</p>
+      <p className={styles.temp}>{Math.round(currentWeather.temp)} °C</p>
     </section>
   );
 };

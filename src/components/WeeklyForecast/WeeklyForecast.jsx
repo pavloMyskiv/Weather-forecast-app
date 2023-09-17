@@ -27,7 +27,7 @@ export const WeeklyForecast = ({ weekForecast }) => {
               </div>
 
               <p>
-                {dailyForecast.temp.max}/{dailyForecast.temp.min}
+                {Math.round(dailyForecast.temp.max)}/<span>{Math.round(dailyForecast.temp.min)}</span> °C
               </p>
             </div>
           );

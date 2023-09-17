@@ -15,7 +15,7 @@ export const DailyForecast = ({ todayForecast }) => {
                   src={`http://openweathermap.org/img/w/${hourForecast.weather[0].icon}.png`}
                   alt={hourForecast.weather[0].description}
                 />
-                <p>{`${hourForecast.temp}°C`}</p>
+                <p>{Math.round(hourForecast.temp)} °C</p>
               </div>
             );
           })}
