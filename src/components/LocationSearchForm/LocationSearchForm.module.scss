@@ -18,7 +18,8 @@
       border-radius: 20px;
       outline: 2px solid $text-color-major;
       transition: outline-color 500ms;
-      &:focus {
+      &:focus,
+      &:valid {
         outline-color: $text-color-minor;
       }
     }
@@ -31,7 +32,8 @@
       translate: 8px 8px;
       transition: translate 500ms, scale 500ms, color 500ms;
     }
-    input:focus + label {
+    input:focus + label,
+    input:valid + label {
       padding-inline: 5px;
       color: $text-color-minor;
       translate: 8px -11px;

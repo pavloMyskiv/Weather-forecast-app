@@ -30,6 +30,7 @@ export const LocationSearchForm = ({ onFormSubmit, label, isError }) => {
           type="search"
           id="city"
           name="city"
+          required
           {...register('city', fieldConfig)}
         />
         <label for="city">{label}</label>
