@@ -1,15 +1,10 @@
 @import '../../style/variables';
+@import '../../style/mixins';
 
 .daily_forecast {
-  padding: 8px;
-  margin-top: 8px;
-  width: 100%;
-  border-radius: 20px;
-  background-color: $bg-color-minor;
+  @include section_block;
   h3 {
-    margin: 0.2em 1em;
-    font-size: 1.3em;
-    color: $text-color-minor;
+    @include section_header;
   }
   .list_container {
     overflow-y: hidden;
@@ -21,29 +16,27 @@
       justify-content: flex-start;
       align-items: center;
       .list_item {
+        flex: 1 1 auto;
         padding: 15px 5px;
         width: 70px;
         min-height: 120px;
-        flex: 1 1 auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-right: 3px solid $bg-color-minor;
+        border-right: $border;
         &:last-child {
           border: none;
         }
-        p {
-          &:first-child {
-            font-size: 0.8em;
-            color: $text-color-minor;
-          }
+        h3 {
+          @include subsection_header;
         }
+
         img {
-          font-size: 0.5em;
-          width: 100%;
-          text-align: center;
           flex: 1 1 auto;
+          width: 100%;
+          font-size: 0.5em;
+          text-align: center;
           object-fit: contain;
         }
       }

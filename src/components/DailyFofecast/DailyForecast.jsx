@@ -1,4 +1,5 @@
 import styles from './DailyForecast.module.scss';
+import { rounder } from '../../utils/rounder';
 
 export const DailyForecast = ({ todayForecast }) => {
   return (
@@ -10,12 +11,12 @@ export const DailyForecast = ({ todayForecast }) => {
             const hour = new Date(hourForecast.dt * 1000).getHours();
             return (
               <div className={styles.list_item} key={hourForecast.dt}>
-                <p>{`${hour}:00`}</p>
+                <h3>{`${hour}:00`}</h3>
                 <img
                   src={`http://openweathermap.org/img/w/${hourForecast.weather[0].icon}.png`}
                   alt={hourForecast.weather[0].description}
                 />
-                <p>{Math.round(hourForecast.temp)} °C</p>
+                <p>{rounder(hourForecast.temp)} °C</p>
               </div>
             );
           })}

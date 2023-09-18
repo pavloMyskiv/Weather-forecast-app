@@ -1,23 +1,22 @@
+import { rounder } from '../../utils/rounder';
 import styles from './WeeklyForecast.module.scss';
 
 export const WeeklyForecast = ({ weekForecast }) => {
   return (
     <div className={styles.weekly_forecast}>
-      <h3>Weekly forecast</h3>
+      <h2>Weekly forecast</h2>
       <div className={styles.list}>
         {weekForecast.map((dailyForecast) => {
           const day = new Date(dailyForecast.dt * 1000).toLocaleDateString(
             'en-US',
             { weekday: 'short' }
           );
+          const isToday =
+            new Date(dailyForecast.dt * 1000).getDate() ===
+            new Date().getDate();
           return (
             <div className={styles.list_item}>
-              <p>
-                {new Date(dailyForecast.dt * 1000).getDate() ===
-                new Date().getDate()
-                  ? 'Today'
-                  : day}
-              </p>
+              <h3>{isToday ? 'Today' : day}</h3>
               <div className={styles.weather}>
                 <img
                   src={`http://openweathermap.org/img/w/${dailyForecast.weather[0].icon}.png`}
@@ -27,7 +26,8 @@ export const WeeklyForecast = ({ weekForecast }) => {
               </div>
 
               <p>
-                {Math.round(dailyForecast.temp.max)}/<span>{Math.round(dailyForecast.temp.min)}</span> °C
+                {rounder(dailyForecast.temp.max)}/
+                <span>{rounder(dailyForecast.temp.min)}</span> °C
               </p>
             </div>
           );

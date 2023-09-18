@@ -1,37 +1,45 @@
 @import '../../style/variables';
+@import '../../style/mixins';
 
 .weekly_forecast {
-  padding: 8px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  background-color: $bg-color-minor;
-  h3 {
-    margin: 0.2em 1em;
-    font-size: 1.3em;
-    color: $text-color-minor;
+
+  @include section_block;
+  h2 {
+    @include section_header;
   }
   .list {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
     .list_item {
       margin: 6px;
-      height: 14%;
       text-align: center;
       display: grid;
       grid-template-columns: 0.5fr 1fr 1fr;
       align-items: center;
-      border-bottom: 3px solid $bg-color-minor;
+      border-bottom: $border;
       &:last-child {
         border: none;
       }
+      h3 {
+        @include subsection_header;
+      }
       .weather {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
       }
       span {
         color: $text-color-minor;
+        font-size: .9em;
+      }
+      img {
+        font-size: 0.5em;
+        text-align: center;
+        object-fit: contain;
       }
     }
   }

@@ -1,15 +1,10 @@
 @import '../../style/variables';
+@import '../../style/mixins';
 
 .air_conditions {
-  padding: 8px;
-  margin-top: 8px;
-  width: 100%;
-  border-radius: 20px;
-  background-color: $bg-color-minor;
-  color: $text-color-minor;
-  h3 {
-    margin: 0.2em 1em;
-    font-size: 1.3em;
+  @include section_block;
+  h2 {
+    @include section_header;
   }
   .grid {
     padding: 8px;
@@ -26,12 +21,12 @@
         grid-column: 1 / span 1;
         grid-row: 1 / span 2;
         font-size: 0.8em;
+        color: $text-color-minor;
       }
-      h4 {
-        font-size: 0.8em;
+      h3 {
+        @include subsection_header;
       }
       p {
-        color: $text-color-major;
         font-size: 1.5em;
       }
     }
