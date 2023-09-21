@@ -15,7 +15,7 @@ export const Weather = ({ cityData }) => {
   console.log(cityWeatherData);
 
   if (isFetching) {
-    return <div>Loading</div>;
+    return <div className={styles.spinner}></div>;
   }
   return (
     <div className={styles.weather}>
