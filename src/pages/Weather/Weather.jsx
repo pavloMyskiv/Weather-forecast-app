@@ -8,14 +8,14 @@ import WeeklyForecast from '../../components/WeeklyForecast';
 
 export const Weather = ({ cityData }) => {
   const currentCityData = cityData[0];
-  const { data: cityWeatherData = [], isLoading } = useGetWeatherQuery({
+  const { data: cityWeatherData = [], isFetching } = useGetWeatherQuery({
     lat: currentCityData.lat,
     lon: currentCityData.lon,
   });
   console.log(cityWeatherData);
 
-  if (isLoading) {
-    return <div>loading</div>;
+  if (isFetching) {
+    return <div>Loading</div>;
   }
   return (
     <div className={styles.weather}>

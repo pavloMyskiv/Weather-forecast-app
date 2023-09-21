@@ -11,7 +11,12 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1em;
-
+    @include for-size(tablet-portrait) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include for-size(phone) {
+      grid-template-columns: repeat(2, 1fr);
+    }
     .grid_item {
       display: grid;
       grid-template-columns: auto 1fr;

@@ -2,10 +2,8 @@
 @import '../../style/mixins';
 
 .weekly_forecast {
-  height: 100%;
   display: flex;
   flex-direction: column;
-
   @include section_block;
   h2 {
     @include section_header;

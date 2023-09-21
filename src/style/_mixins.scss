@@ -1,4 +1,3 @@
-/** @format */
 @import './variables';
 
 @mixin section_block {
@@ -17,4 +16,31 @@
 @mixin subsection_header {
   font-size: 0.8em;
   color: $text-color-minor;
+}
+@mixin for-size($size) {
+  @if $size == small-phone {
+    @media (max-width: 320px) {
+      @content;
+    }
+  } @else if $size == phone {
+    @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $size == tablet-portrait {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == tablet-landscape-up {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $size == desktop-up {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $size == big-desktop-up {
+    @media (max-width: 1800px) {
+      @content;
+    }
+  }
 }
