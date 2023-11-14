@@ -9,11 +9,13 @@ export const locationAPI = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.REACT_APP_LOGATION_API}`,
   }),
+  tagTypes: ['Location'],
   endpoints: (builder) => ({
     getLocation: builder.query({
       query: (city) =>
         `?q=${city}&limit=${callParams.limit}&appid=${process.env.REACT_APP_OPEN_WEATHER_MAP_KEY}`,
     }),
+    provideTags: ['Location'],
   }),
 });
 

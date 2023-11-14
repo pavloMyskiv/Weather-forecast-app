@@ -38,12 +38,17 @@ const StyledWeatherLayout = styled.div`
 `;
 
 export const Weather = ({ cityData }) => {
+  const refetchInterval = 600000;
   const currentCityData = cityData[0];
-  const { data: cityWeatherData = [], isFetching } = useGetWeatherQuery({
-    lat: currentCityData.lat,
-    lon: currentCityData.lon,
-  });
-
+  const { data: cityWeatherData = [], isFetching } = useGetWeatherQuery(
+    {
+      lat: currentCityData.lat,
+      lon: currentCityData.lon,
+    },
+    {
+      pollingInterval: refetchInterval,
+    }
+  );
   if (isFetching) {
     return <Loader />;
   }
