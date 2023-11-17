@@ -50,9 +50,10 @@ const AppContainer = styled.div`
     border-radius: 0;
   }
 `;
-const modeKey = 'mode';
 
 const App = () => {
+  const modeKey = 'mode';
+  const cityKey = 'city';
   const [darkmode, setMode] = useState(() => {
     if (getFromLocal(modeKey) || getFromLocal(modeKey) === false) {
       return getFromLocal(modeKey);
@@ -60,8 +61,9 @@ const App = () => {
       return true;
     }
   });
-  const [getLocation, { data: cityData = [], isFetching, isSuccess, isError }] =
+  let [getLocation, { data: cityData = [], isFetching, isSuccess, isError }] =
     useLazyGetLocationQuery();
+
   const searchStatus = {
     normal: 'Enter location',
     loading: 'Loading...',
@@ -75,6 +77,12 @@ const App = () => {
     label = searchStatus.not_found;
   } else if (isError) {
     label = searchStatus.error;
+  }
+  if (getFromLocal(cityKey) && cityData.length === 0) {
+    cityData = getFromLocal(cityKey);
+  }
+  if (cityData.length !== 0 && cityData !== getFromLocal(cityKey)) {
+    setInLocal(cityKey, cityData);
   }
   return (
     <Theme mode={darkmode}>
