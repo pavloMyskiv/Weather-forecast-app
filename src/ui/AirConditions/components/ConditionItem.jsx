@@ -17,6 +17,9 @@ const StyledConditionItem = styled.div`
 `;
 
 export const ConditionItem = ({ condition, text }) => {
+  if (!condition) {
+    return;
+  }
   return (
     <StyledConditionItem>
       <FontAwesomeIcon icon={text.icon} size="xs" />
