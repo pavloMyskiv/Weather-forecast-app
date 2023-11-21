@@ -28,6 +28,7 @@ export const LocationSearchForm = ({ onFormSubmit, label, isError }) => {
       onSubmit={handleSubmit((data) => {
         onFormSubmit(data.city);
         reset({ city: '' });
+        document.activeElement.blur();
       })}
     >
       <InputBlock
