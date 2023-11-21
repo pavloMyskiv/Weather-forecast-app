@@ -10,6 +10,7 @@ const StyledPopup = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   background: ${(props) => props.theme.colors.background.major};
   backdrop-filter: blur(50px);
   opacity: ${(props) => (props.$isActive ? '0.9' : '0')};
@@ -22,6 +23,7 @@ const StyledPopupInner = styled(SectionBox)`
   margin: 1em;
   padding: 1em;
   max-width: 600px;
+  max-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: end;
